@@ -2823,7 +2823,7 @@ namespace QtProjectLib
                 for (var i = generatedFiles.Count - 1; i >= 0; i--) {
                     var file = generatedFiles[i];
                     string fileName = null;
-                    if (file.Name.StartsWith("moc_", StringComparison.OrdinalIgnoreCase))
+                    if (file.Name.StartsWith("moc_", StringComparison.OrdinalIgnoreCase) && !file.Name.EndsWith(".cbt", StringComparison.OrdinalIgnoreCase))
                         fileName = file.Name.Substring(4, file.Name.Length - 8) + ".h";
                     else if (HelperFunctions.IsMocFile(file.Name))
                         fileName = file.Name.Substring(0, file.Name.Length - 4) + ".cpp";
